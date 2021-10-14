@@ -11,16 +11,21 @@ fileOut = open(filepath, 'w')
 
 i = 0
 sstr = ''
-while(i < wordsCountSubstring):
+while i < wordsCountSubstring:
     sstr = sstr + l[int(random.random()*len(l))] + ' '
-    i = i+1;
+    i = i+1
 sstr += '\n'
 
 i = 0
-while(i < wordsCountText):
-    if(i%15 == 0 and i != 0):
+while i < wordsCountText:
+    if i%15 == 0 and i != 0:
         sstr = sstr + '\n'
     sstr = sstr + l[int(random.random()*len(l))] + ' '
-    i = i+1;
-fileOut.write(sstr)
+    if i == 1000:
+        break
+    i = i+1
+while i < wordsCountText:
+    fileOut.write(sstr)
+    i = i + 1000
+
 fileOut.close()
